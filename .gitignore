@@ -49,5 +49,5 @@ Desktop.ini
 # Temporary byproducts
 *.tmp
 
-# Ignore compiled font file (if unnecessary)
+# font file 
 Cascadia.ttf
