@@ -1,0 +1,53 @@
+# Visual Studio build files
+*.obj
+*.exe
+*.pdb
+*.idb
+*.ipdb
+*.iobj
+*.ilk
+*.log
+*.tlog
+*.aps
+*.pch
+*.res
+*.sdf
+*.opensdf
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+
+# Build output directories
+Release/
+Debug/
+x64/
+*.dll.recipe
+
+# VS folders
+.vs/
+.vscode/
+
+# Windows file
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Backup files
+*.bak
+*.old
+*.orig
+
+# Others
+*.log
+*.cache
+
+# Compiled library files
+*.lib
+*.dll
+
+# Temporary byproducts
+*.tmp
+
+# Ignore compiled font file (if unnecessary)
+Cascadia.ttf
