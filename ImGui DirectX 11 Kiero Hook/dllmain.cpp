@@ -5,7 +5,7 @@
 #include "GamePointers.h"
 #include "Config.h"
 #include "UI.h"
-#include "TMStyle.h" 
+#include "ImGuiStyle.h"
 
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -23,18 +23,16 @@ bool show_menu = true;
 bool controller_pointers_found = false;
 bool in_track_pointers_found = false;
 
+float fontSize = 18.0f;
+
 void InitImGui()
 {
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
-    
-    ImGui::StyleColorsDark();
-
+    SetupImGuiStyle();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-
     io.Fonts->Clear();
-    io.Fonts->AddFontFromFileTTF("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Trials Fusion\\datapack\\Fonts\\Bahnschrift-Regular.ttf", 20.0f);
-
+    io.Fonts->AddFontFromFileTTF("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Trials Fusion\\datapack\\Fonts\\Bahnschrift-Regular.ttf", fontSize);
     io.FontGlobalScale = 1.0f;
     ImGui_ImplWin32_Init(window);
     ImGui_ImplDX11_Init(pDevice, pContext);

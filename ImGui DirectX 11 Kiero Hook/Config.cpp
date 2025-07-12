@@ -5,6 +5,8 @@
 #include <sstream>
 #include <map>
 
+constexpr auto CONFIG_PATH = "C:\\Skilbo-s-TAS-Tool\\ImGui DirectX 11 Kiero Hook\\config.ini";;
+
 namespace Config
 {
     static std::map<std::string, std::string> offsets;
@@ -12,20 +14,20 @@ namespace Config
     void Load()
     {
         char result[255];
-        // We'll read all the keys from the [Offsets] section.
-        // Make sure config.ini is in the same directory as the game's .exe
-        GetPrivateProfileString("Offsets", "l2Address", "0", result, 255, ".\\config.ini");
+        GetPrivateProfileString("Offsets", "l2Address", "0", result, 255, CONFIG_PATH);
         offsets["l2Address"] = result;
-        GetPrivateProfileString("Offsets", "r2Address", "0", result, 255, ".\\config.ini");
+        GetPrivateProfileString("Offsets", "r2Address", "0", result, 255, CONFIG_PATH);
         offsets["r2Address"] = result;
-        GetPrivateProfileString("Offsets", "leftStickAddress", "0", result, 255, ".\\config.ini");
+        GetPrivateProfileString("Offsets", "leftStickAddress", "0", result, 255, CONFIG_PATH);
         offsets["leftStickAddress"] = result;
-        GetPrivateProfileString("Offsets", "gasAddress", "0", result, 255, ".\\config.ini");
+        GetPrivateProfileString("Offsets", "gasAddress", "0", result, 255, CONFIG_PATH);
         offsets["gasAddress"] = result;
-        GetPrivateProfileString("Offsets", "brakeAddress", "0", result, 255, ".\\config.ini");
+        GetPrivateProfileString("Offsets", "brakeAddress", "0", result, 255, CONFIG_PATH);
         offsets["brakeAddress"] = result;
-        GetPrivateProfileString("Offsets", "leanAddress", "0", result, 255, ".\\config.ini");
+        GetPrivateProfileString("Offsets", "leanAddress", "0", result, 255, CONFIG_PATH);
         offsets["leanAddress"] = result;
+        GetPrivateProfileString("Offsets", "frameAddress", "0", result, 255, CONFIG_PATH);
+        offsets["frameAddress"] = result;
     }
 
     uintptr_t GetBaseAddress(const char* name)

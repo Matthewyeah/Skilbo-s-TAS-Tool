@@ -18,6 +18,7 @@ namespace GamePointers
     extern uintptr_t gasAddress;
     extern uintptr_t brakeAddress;
     extern uintptr_t leanAddress;
+    extern uintptr_t frameAddress;
 
     // --- Function Declarations ---
     void InitialiseControllerPointers();
@@ -36,4 +37,5 @@ namespace GamePointers
     void SetR2Value(byte newValue);
     signed char GetLeftStickValue();
     void SetLeftStickValue(signed char newValue);
+    byte GetFrameValue();
 }

@@ -12,6 +12,7 @@ namespace GamePointers
     uintptr_t l2Address = 0;
     uintptr_t r2Address = 0;
     uintptr_t leftStickAddress = 0;
+    uintptr_t frameAddress = 0;
 
     // --- Function Definitions ---
 
@@ -20,7 +21,7 @@ namespace GamePointers
         uintptr_t addr = base;
         for (unsigned int i = 0; i < offsets.size(); ++i)
         {
-            if (*(uintptr_t*)addr == 0) return 0; 
+            if (*(uintptr_t*)addr == 0) return 0;
             addr = *(uintptr_t*)addr;
             addr += offsets[i];
         }
@@ -44,6 +45,7 @@ namespace GamePointers
         gasAddress = FindDMAAddy(tfModBase + Config::GetBaseAddress("gasAddress"), Config::GetOffsets("gasAddress"));
         brakeAddress = FindDMAAddy(tfModBase + Config::GetBaseAddress("brakeAddress"), Config::GetOffsets("brakeAddress"));
         leanAddress = FindDMAAddy(tfModBase + Config::GetBaseAddress("leanAddress"), Config::GetOffsets("leanAddress"));
+        frameAddress = FindDMAAddy(tfModBase + Config::GetBaseAddress("frameAddress"), Config::GetOffsets("frameAddress"));
     }
 
     byte GetGasValue() {
@@ -104,5 +106,10 @@ namespace GamePointers
     void SetLeftStickValue(signed char newValue) {
         if (leftStickAddress == 0) return;
         *(signed char*)leftStickAddress = newValue;
+    }
+
+    byte GetFrameValue() {
+        if (frameAddress == 0) return 0;
+        return *(byte*)frameAddress;
     }
 }

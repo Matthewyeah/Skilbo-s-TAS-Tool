@@ -44,12 +44,14 @@ void RenderTASMenu(bool& show_menu, bool pointers_initialized)
                 ImGui::Separator();
                 if (GamePointers::gasAddress != 0)
                 {
+                    ImGui::Text("Frame: %d", GamePointers::GetFrameValue());
                     ImGui::Text("Gas: %d", GamePointers::GetGasValue());
                     ImGui::Text("Brake: %d", GamePointers::GetBrakeValue());
                     ImGui::Text("Lean: %d", GamePointers::GetLeanValue());
                 }
                 else
                 {
+                    ImGui::TextDisabled("Frame: (N/A - Load a track to initialize)");
                     ImGui::TextDisabled("Gas: (N/A - Load a track to initialize)");
                     ImGui::TextDisabled("Brake: (N/A - Load a track to initialize)");
                     ImGui::TextDisabled("Lean: (N/A - Load a track to initialize)");
@@ -68,6 +70,18 @@ void RenderTASMenu(bool& show_menu, bool pointers_initialized)
                 ImGui::Text("L2 Address: 0x%p", (void*)GamePointers::l2Address);
                 ImGui::Text("R2 Address: 0x%p", (void*)GamePointers::r2Address);
                 ImGui::Text("Left Stick Address: 0x%p", (void*)GamePointers::leftStickAddress);
+                ImGui::Text("Frame Address: 0x%p", (void*)GamePointers::frameAddress);
+            }
+
+            // -- Collapsible Section 3: Style Editor --
+            if (ImGui::CollapsingHeader("Style Editor"))
+            {
+                // Add a little helper guide
+                ImGui::TextWrapped("You can edit the style in real-time. The 'Export' button below will output C++ code to the clipboard that you can paste into a new style function.");
+                ImGui::Separator();
+
+                // Show the Style Editor
+                ImGui::ShowStyleEditor();
             }
         }
         ImGui::End();

@@ -139,7 +139,7 @@
     <ClInclude Include="Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TMStyle.h">
+    <ClInclude Include="ImGuiStyle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -148,9 +148,5 @@
       <Filter>kiero</Filter>
     </None>
     <None Include="config.ini" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="Cascadia.ttf" />
-    <Font Include="Roboto-Regular.ttf" />
   </ItemGroup>
 </Project>
